@@ -14,7 +14,11 @@ void draw(int n) {
         if (j % 2 != 0) {
           stdout.write(" ");
         } else {
-          stdout.write((i + 1) % 10);
+          if (i + 1 == 9) {
+            stdout.write("9");
+          } else {
+            stdout.write((i + 1) % 9);
+          }
         }
       }
       for (int j = 0; j < cstar; j++) {
@@ -33,7 +37,12 @@ void draw(int n) {
     int kiri = 1, kanan = n;
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n - i; j++) {
-        stdout.write(kiri++ % 10);
+        if (kiri % 9 == 0) {
+          stdout.write("9");
+        } else {
+          stdout.write(kiri % 9);
+        }
+        kiri++;
         if (kiri > n) {
           kiri = 1;
         }
@@ -42,7 +51,12 @@ void draw(int n) {
         stdout.write(" ");
       }
       for (int j = 0; j < n - i; j++) {
-        stdout.write(kanan-- % 10);
+        if (kanan % 9 == 0) {
+          stdout.write("9");
+        } else {
+          stdout.write(kanan % 9);
+        }
+        kanan--;
         if (kanan < 1) {
           kanan = n;
         }
